@@ -1,0 +1,40 @@
+diff --git a/release/models/ospf/openconfig-ospfv2-area-interface.yang b/release/models/ospf/openconfig-ospfv2-area-interface.yang
+index cd8836c..4e971ce 100644
+--- a/release/models/ospf/openconfig-ospfv2-area-interface.yang
++++ b/release/models/ospf/openconfig-ospfv2-area-interface.yang
+@@ -82,15 +82,22 @@ submodule openconfig-ospfv2-area-interface {
+         secondary area.";
+     }
+ 
+-    leaf authentication-type {
+-      type string;
+-      // rjs TODO: discuss with bogdanov@ what the approach for auth
+-      // links should be.
++    leaf auth-password {
++      type oc-types:routing-password;
+       description
+-        "The type of authentication that should be used on this
+-        interface";
++        "Configures an MD5 authentication password for use with
++        neighboring devices.";
+     }
+ 
++    //leaf authentication-type {
++    //  type string;
++      // rjs TODO: discuss with bogdanov@ what the approach for auth
++      // links should be.
++    //  description
++    //    "The type of authentication that should be used on this
++    //    interface";
++    /}
++
+     leaf metric {
+       type oc-ospf-types:ospf-metric;
+       description
+@@ -463,4 +470,4 @@ submodule openconfig-ospfv2-area-interface {
+     }
+   }
+ 
+-}
+\ No newline at end of file
++}
